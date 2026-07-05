@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.python-version
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Trained weights and experiment outputs (results are reproduced, not versioned)
+*.pt
+*.pth
+*.ckpt
+results/*
+!results/.gitkeep
+
+# Local datasets (small reference datasets may be force-added case by case)
+data/*
+!data/.gitkeep
+
+# Secrets and local config
+.env
+*.token
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# LaTeX build artifacts (if the report lives here later)
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.toc
+*.synctex.gz

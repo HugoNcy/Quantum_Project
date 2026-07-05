@@ -1,0 +1,22 @@
+services:
+  lab:
+    build:
+      context: .
+      args:
+        # Set PIP_TRUST_INDEX_HOSTS=1 in a local .env only if the build fails
+        # with CERTIFICATE_VERIFY_FAILED (TLS-intercepting network).
+        PIP_TRUST_INDEX_HOSTS: ${PIP_TRUST_INDEX_HOSTS:-}
+    image: photonic-gen:latest
+    ports:
+      - "127.0.0.1:8888:8888"  # bound to localhost only
+    volumes:
+      - .:/app  # live-mount the repo: edits on the host are visible in the container
+      # On Linux with SELinux (Fedora, RHEL), use ".:/app:Z" instead.
+    environment:
+      # Quandela Cloud token for Phase 4 (leave empty until needed).
+      # Put QUANDELA_TOKEN=... in a local .env file (gitignored), never commit it.
+      - QUANDELA_TOKEN=${QUANDELA_TOKEN:-}
+    # Token-less Jupyter is acceptable because the port is bound to 127.0.0.1.
+    command: >
+      jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root
+      --ServerApp.token='' --ServerApp.root_dir=/app
