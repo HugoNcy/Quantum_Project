@@ -42,12 +42,12 @@ LaTeX document (`quantum_project_explanation/`).
 ├── results/              # Weights, logs, CSV/JSON metrics (gitignored, reproduced)
 ├── Dockerfile            # Reproducible environment (Python 3.12 + pinned quantum stack)
 ├── compose.yaml          # One-command JupyterLab via Podman/Docker
-└── requirements.txt      # Pinned: perceval-quandela==1.2.3, merlinquantum==0.4.0
+└── requirements.txt      # Pinned: perceval-quandela==1.2.4, merlinquantum==0.4.0
 ```
 
 ## The environment: why a container
 
-The whole team must run **exactly** Python 3.12, Perceval 1.2.3 and MerLin 0.4.0:
+The whole team must run **exactly** Python 3.12, Perceval 1.2.4 and MerLin 0.4.0:
 the API traps we documented (output-space switching under noise, state_dict
 incompatibilities with losses, builder vs circuit constructor) were validated on
 these versions, and a silent version bump on one machine would make results
