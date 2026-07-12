@@ -1,0 +1,26 @@
+{
+  "seed": 0,
+  "n_modes": 6,
+  "n_photons": 3,
+  "output_keys": {
+    "n_clean": 56,
+    "n_lossy": 84,
+    "n_common": 56
+  },
+  "column_alignment": {
+    "n_zero_columns": 28
+  },
+  "near_clean_transfer_max_err": 6.202608346939087e-06,
+  "mesh_smoke_dims": {
+    "mzi_P0": 56,
+    "tritter_P4": 84
+  },
+  "pipeline": {
+    "history": [
+      0.4478321075439453,
+      0.48683083057403564
+    ],
+    "eval_mmd_mean": 0.4669487476348877,
+    "eval_mmd_std": 0.010186509229242802
+  }
+}

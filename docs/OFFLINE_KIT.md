@@ -2,11 +2,12 @@
 
 > **Comment ce kit a été fabriqué.** Chaque snippet et chaque exercice de ce document a été
 > **réellement exécuté** le 2026-07-05 sur la stack épinglée du projet
-> (`perceval-quandela==1.2.3`, `merlinquantum==0.4.0`, `torch 2.12.1+cpu`, Python 3.11.6 —
-> seul écart avec le 3.12 du projet, sans impact API constaté). Les sorties affichées sont
-> les sorties réelles, pas des sorties supposées. Les signatures ont été extraites par
-> `inspect.signature` sur le package installé. Quand une croyance de l'équipe s'est révélée
-> incomplète, ce kit documente le comportement observé.
+> (`perceval-quandela==1.2.3`, `merlinquantum==0.4.0`), dans DEUX environnements : le venv
+> local (Python 3.11.6, torch 2.12.1+cpu) et le conteneur officiel du projet
+> (Python 3.12.13, torch 2.5.1+cpu) — les 6 exercices passent dans les deux. Les sorties
+> affichées sont les sorties réelles, pas des sorties supposées. Les signatures ont été
+> extraites par `inspect.signature` sur le package installé. Quand une croyance de l'équipe
+> s'est révélée incomplète, ce kit documente le comportement observé.
 >
 > Les exercices existent aussi en scripts exécutables dans `docs/exercises/ex1_*.py` à `ex6_*.py`.
 
