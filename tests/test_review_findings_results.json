@@ -1,0 +1,27 @@
+{
+  "seed": 0,
+  "n_modes": 6,
+  "n_photons": 3,
+  "effective_budget": {
+    "mzi": {
+      "rank": 50,
+      "nominal": 60
+    },
+    "tritter": {
+      "rank": 49,
+      "nominal": 56
+    }
+  },
+  "sensitivity": {
+    "mzi": {
+      "max_std": 0.05245651304721832,
+      "mean_std": 0.017025742679834366
+    },
+    "tritter": {
+      "max_std": 0.031221097335219383,
+      "mean_std": 0.01678132265806198
+    }
+  },
+  "tritter_determinism_max_err": 4.1920073447787874e-09,
+  "x_order_ok": true
+}

@@ -2,13 +2,13 @@
   "seed": 0,
   "n_modes": 6,
   "n_photons": 3,
-  "tritter_dft_max_error": 6.176913900339525e-09,
+  "tritter_dft_max_error": 7.094567162752015e-09,
   "max_output_std": {
-    "mzi": 0.05245649442076683,
-    "tritter": 0.041651446372270584
+    "mzi": 0.05245651304721832,
+    "tritter": 0.031221140176057816
   },
   "trainable_counts": {
     "mzi": 60,
-    "tritter": 60
+    "tritter": 56
   }
 }
