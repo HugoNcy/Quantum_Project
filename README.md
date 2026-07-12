@@ -194,6 +194,49 @@ pip install -r requirements.txt
 | 4 | Inference on Quandela Cloud (Belenos/Lucy), sim-vs-hardware gap | Niels, Tony + Hugo |
 | 5 | Reproducible artifact (this repo) | all |
 
+**Status (July 2026):** phases 1, 1bis, 2 and 3 are complete in simulation
+(results below); phase 4 is pending Quandela Cloud access.
+
+## Results (simulation, July 2026)
+
+Full interpretation in `notebooks/results_noise_and_meshes.ipynb`. Seed 0,
+6 modes, 3 photons, `two_gaussians` target, 800 steps, batch 256; the
+real-vs-real MMD floor is 0.0033 ± 0.0013.
+
+**Noise mismatch (phase 2).** Partial distinguishability barely moves the
+matched-profile MMD (0.0052 at P0 to 0.0060 at P3). Losses do: any model
+trained without losses collapses when evaluated under P4 (MMD ≈ 0.031–0.037,
+because 1 − 0.9³ = 27% of the probability mass lands on loss states the model
+never saw), while training under P4 itself reaches the floor (0.0039).
+The mismatch axis that matters is structural (losses), not spectral
+(indistinguishability).
+
+![mismatch heatmap](figures/mismatch_heatmap_mzi.png)
+
+**MZI vs tritter (phase 3).** At fair budget (60 vs 56 trainable phases,
+effective Jacobian ranks 50 vs 49), the tritter mesh is consistently better
+on P0–P3 (0.0040–0.0044 vs 0.0052–0.0060) and the ranking **inverts under
+losses** (P4: MZI 0.0039, tritter 0.0058). Single seed, gaps of order one
+evaluation sigma: suggestive, not definitive. The direction is consistent
+across profiles, and seed replication is the next step.
+
+![ranking vs noise](figures/ranking_vs_noise.png)
+
+**Financial target (phase 1bis).** On standardized Student-t(4) log-returns
+the generator matches the bulk (5%/50%/95% quantiles within a few percent)
+and truncates the tails (|q| at 0.1%/99.9%: target 4.85, generated ≈ 2.4).
+A generator at this scale does not capture fat tails; documented as a result
+(`figures/tails_log_returns.csv`, histogram and QQ plot in `figures/`).
+
+**Reproduce everything** (about one hour on a laptop CPU, fixed seeds):
+
+```bash
+python src/train_noise_grid.py
+python src/mismatch_matrix.py
+python src/compare_meshes.py
+python src/train_financial.py
+```
+
 ## Contributions
 
 Explicit contribution statement per member — to be finalized in Phase 5.
